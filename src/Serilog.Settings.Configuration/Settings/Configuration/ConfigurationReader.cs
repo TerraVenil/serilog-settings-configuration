@@ -168,8 +168,9 @@ namespace Serilog.Settings.Configuration
             var writeToDirective = _section.GetSection("WriteTo");
             if (writeToDirective.GetChildren().Any())
             {
-                var methodCalls = GetMethodCalls(writeToDirective);
-                CallConfigurationMethods(methodCalls, FindSinkConfigurationMethods(_configurationAssemblies), loggerConfiguration.WriteTo, declaredLevelSwitches);
+                //var methodCalls = GetMethodCalls(writeToDirective);
+                //CallConfigurationMethods(methodCalls, FindSinkConfigurationMethods(_configurationAssemblies), loggerConfiguration.WriteTo, declaredLevelSwitches);
+                loggerConfiguration.WriteTo.Console(LogEventLevel.Error, "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff} {Level:u3}] {Message}{NewLine}{Exception}");
             }
         }
 
